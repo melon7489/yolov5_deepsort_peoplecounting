@@ -12,14 +12,14 @@ class YamlParser(edict):
 
         if config_file is not None:
             assert(os.path.isfile(config_file))
-            with open(config_file, 'r') as fo:
+            with open(config_file, 'r', encoding='utf-8') as fo:
                 cfg_dict.update(yaml.load(fo.read()))
 
         super(YamlParser, self).__init__(cfg_dict)
 
     
     def merge_from_file(self, config_file):
-        with open(config_file, 'r') as fo:
+        with open(config_file, 'r', encoding='utf-8') as fo:
             #self.update(yaml.load(fo.read()))
             self.update(yaml.load(fo.read(),Loader=yaml.FullLoader))
     
