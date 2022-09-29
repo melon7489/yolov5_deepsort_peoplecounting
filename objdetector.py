@@ -3,13 +3,13 @@ import torch
 import numpy as np
 from models.experimental import attempt_load
 from utils.general import non_max_suppression, scale_coords
-from utils.datasets import letterbox
+from utils.augmentations import letterbox
 from utils.torch_utils import select_device
 import objtracker
 
 # OBJ_LIST = ['person', 'car', 'bus', 'truck']
 OBJ_LIST = ['head']
-DETECTOR_PATH = 'weights/best3.pt'
+DETECTOR_PATH = 'weights/best.pt'
 
 class baseDet(object):
     def __init__(self):

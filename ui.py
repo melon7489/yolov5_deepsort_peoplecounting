@@ -231,7 +231,8 @@ class PredThread(QThread):  # 预测线程
                             self.list_overlapping_yellow_polygon.remove(track_id)
                         else:
                             self.mainwin.mutex.lock()
-                            self.mainwin.up_count -= 1
+                            if self.mainwin.up_count > 0:
+                                self.mainwin.up_count -= 1
                             self.mainwin.mutex.unlock()
                             self.list_overlapping_yellow_polygon.remove(track_id)
                             self.isDone.remove(track_id)
@@ -254,7 +255,8 @@ class PredThread(QThread):  # 预测线程
                             self.list_overlapping_blue_polygon.remove(track_id)
                         else:
                             self.mainwin.mutex.lock()
-                            self.mainwin.down_count -= 1
+                            if self.mainwin.down_count > 0:
+                                self.mainwin.down_count -= 1
                             self.mainwin.mutex.unlock()
                             self.list_overlapping_blue_polygon.remove(track_id)
                             self.isDone.remove(track_id)
