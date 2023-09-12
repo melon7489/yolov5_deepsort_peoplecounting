@@ -157,7 +157,7 @@ class NearestNeighborDistanceMetric(object):
         self.budget = budget  # budge用于控制 feature 的数目
         self.samples = {}  # 每一个对象以及其特征对应一个键值对，列表存储目前状态为confirmed对象的特征，每一帧都会更新。
 
-    def partial_fit(self, features, targets, active_targets):
+    def partial_fit(self, features: object, targets: object, active_targets: object) -> object:
         """Update the distance metric with new data.
         用新的数据更新测量距离
         每一帧匹配完成后需要对其中的sample进行更新
@@ -205,4 +205,5 @@ class NearestNeighborDistanceMetric(object):
         cost_matrix = np.zeros((len(targets), len(features)))
         for i, target in enumerate(targets):
             cost_matrix[i, :] = self._metric(self.samples[target], features)
+
         return cost_matrix

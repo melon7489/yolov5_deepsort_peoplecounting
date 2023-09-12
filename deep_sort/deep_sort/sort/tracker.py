@@ -121,6 +121,7 @@ class Tracker:
             
             # 通过最近邻（余弦距离）计算出成本矩阵（代价矩阵）
             cost_matrix = self.metric.distance(features, targets)
+
             # 计算门控后的成本矩阵（代价矩阵）
             cost_matrix = linear_assignment.gate_cost_matrix(
                 self.kf, cost_matrix, tracks, dets, track_indices,

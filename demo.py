@@ -6,7 +6,7 @@ import cv2
 import os
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 # VIDEO_PATH = './video/videotest.avi'
-VIDEO_PATH = "rtsp://admin:Liuwei123456@192.168.1.20:554/stream1"
+VIDEO_PATH = r"C:\Users\Administrator\Desktop\9月7日拥堵.mp4"
 RESULT_PATH = 'demo.mp4'
 
 def main():

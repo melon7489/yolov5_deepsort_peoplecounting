@@ -45,6 +45,7 @@ class Extractor(object):
         def _resize(im, size):
             return cv2.resize(im.astype(np.float32)/255., size)
 
+
         im_batch = torch.cat([self.norm(_resize(im, self.size)).unsqueeze(0) for im in im_crops], dim=0).float()
         return im_batch
 
@@ -59,8 +60,11 @@ class Extractor(object):
 
 
 if __name__ == '__main__':
-    img = cv2.imread("demo.jpg")[:,:,(2,1,0)]
+    image_bgr = cv2.imread("demo.jpg")
+    image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)[np.newaxis, :, :]
     extr = Extractor("checkpoint/ckpt.t7")
-    feature = extr(img)
+
+    feature = extr(image_rgb)
+    print(feature)
     print(feature.shape)
 

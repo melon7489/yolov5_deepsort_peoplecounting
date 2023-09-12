@@ -7,10 +7,10 @@ from utils.augmentations import letterbox
 from utils.torch_utils import select_device
 import objtracker
 
-# OBJ_LIST = ['person', 'car', 'bus', 'truck']
-OBJ_LIST = ['head']
-DETECTOR_PATH = 'weights/best.pt'
-
+OBJ_LIST = ['person', 'car', 'bus', 'truck']
+# OBJ_LIST = ['head']
+DETECTOR_PATH = 'weights/yolov5s.pt'
+objtracker = objtracker.Objtracker()
 class baseDet(object):
     def __init__(self):
         self.img_size = 640
