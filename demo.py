@@ -1,6 +1,9 @@
 import time
 
+from PyQt5.QtWidgets import QApplication
+
 from objdetector import Detector
+from objtracker import *
 import imutils
 import cv2
 import os
@@ -13,9 +16,7 @@ def main():
 
     func_status = {}
     func_status['headpose'] = None
-    
     name = 'demo'
-
     det = Detector()
     cap = cv2.VideoCapture(VIDEO_PATH)
     fps = cap.get(5)
@@ -42,18 +43,18 @@ def main():
             videoWriter = cv2.VideoWriter(
                 RESULT_PATH, fourcc, fps, (result.shape[1], result.shape[0]))
         t = t2 - t1
-        print("处理时间", t)
+        # print("处理时间", t)
         videoWriter.write(result)
         cv2.imshow(name, result)
         cv2.waitKey(1)
 
-        if cv2.getWindowProperty(name, cv2.WND_PROP_AUTOSIZE) < 1:
-            # 点x退出
-            break
-
-    cap.release()
-    videoWriter.release()
-    cv2.destroyAllWindows()
+    #     if cv2.getWindowProperty(name, cv2.WND_PROP_AUTOSIZE) < 1:
+    #         # 点x退出
+    #         break
+    #
+    # cap.release()
+    # videoWriter.release()
+    # cv2.destroyAllWindows()
 
 if __name__ == '__main__':
     

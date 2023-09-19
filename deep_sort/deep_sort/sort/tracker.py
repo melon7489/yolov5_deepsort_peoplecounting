@@ -1,6 +1,8 @@
 # vim: expandtab:ts=4:sw=4
 # 保存了所有的轨迹信息，负责初始化第一帧，卡尔曼滤波的预测和更新，负责级联匹配,IOU匹配。
 from __future__ import absolute_import
+
+import cv2
 import numpy as np
 from . import kalman_filter
 from . import linear_assignment
@@ -114,7 +116,6 @@ class Tracker:
             np.asarray(features), np.asarray(targets), active_targets)
 
     def _match(self, detections):  # 进行级联特征匹配
-
         def gated_metric(tracks, dets, track_indices, detection_indices):
             features = np.array([dets[i].feature for i in detection_indices])
             targets = np.array([tracks[i].track_id for i in track_indices])

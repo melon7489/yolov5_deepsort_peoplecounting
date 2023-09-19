@@ -7,7 +7,7 @@ from utils.augmentations import letterbox
 from utils.torch_utils import select_device
 import objtracker
 
-OBJ_LIST = ['person', 'car', 'bus', 'truck']
+OBJ_LIST = ['car','person']
 # OBJ_LIST = ['head']
 DETECTOR_PATH = 'weights/yolov5s.pt'
 objtracker = objtracker.Objtracker()
@@ -28,6 +28,7 @@ class baseDet(object):
         }
         self.frameCounter += 1
         im, obj_bboxes = objtracker.update(self, im)
+        # objtracker.send_timer()
         retDict['frame'] = im
         retDict['obj_bboxes'] = obj_bboxes
 
