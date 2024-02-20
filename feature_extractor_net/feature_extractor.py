@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 import logging
 from cost.nn_matching import NearestNeighborDistanceMetric
-from .model import Net
+from feature_extractor_net.model import Net
 
 '''
 特征提取器：

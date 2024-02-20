@@ -20,7 +20,7 @@ class baseDet(object):
     def build_config(self):
         self.frameCounter = 0
 
-    def feedCap(self, im, func_status):
+    def feedCap(self, im):
         retDict = {
             'frame': None,
             'list_of_ids': None,
@@ -28,7 +28,6 @@ class baseDet(object):
         }
         self.frameCounter += 1
         im, obj_bboxes = objtracker.update(self, im)
-        # objtracker.send_timer()
         retDict['frame'] = im
         retDict['obj_bboxes'] = obj_bboxes
 
