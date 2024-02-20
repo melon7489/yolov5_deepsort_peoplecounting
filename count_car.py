@@ -6,7 +6,7 @@ import os
 from objtracker import Objtracker
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
-VIDEO_PATH = './video/video1.avi'
+VIDEO_PATH = './video/2016_04_07_07_22_10BackColor.avi'
 objtracker = Objtracker()
 
 if __name__ == '__main__':
